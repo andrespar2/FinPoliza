@@ -309,9 +309,7 @@ export interface AppSettings {
   insurance: {
     allowPurchase: boolean
     defaultPeriodicity: Periodicity
-    graceDays: number
     reminderDays: number
-    showCatalogToGuests: boolean
   }
   notifications: {
     enabled: boolean

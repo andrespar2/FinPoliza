@@ -16,7 +16,7 @@ export function AdminAnnouncements() {
   const confirm = useConfirm()
   const session = state.session!
   const [title, setTitle] = useState('')
-  const [body, setBody] = useState('')
+  const [body, setBody] = useState(state.settings.notifications.templates.announcement)
   const [link, setLink] = useState('')
   const [error, setError] = useState<string | null>(null)
   const [sending, setSending] = useState(false)
@@ -46,7 +46,7 @@ export function AdminAnnouncements() {
       await publishAnnouncement(title, body, link.trim() || undefined)
       toast.success('Aviso publicado para todos los usuarios.')
       setTitle('')
-      setBody('')
+      setBody(state.settings.notifications.templates.announcement)
       setLink('')
     } catch (err) {
       setError(err instanceof Error ? err.message : 'No se pudo publicar el aviso.')

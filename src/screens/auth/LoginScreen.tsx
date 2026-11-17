@@ -4,7 +4,7 @@ import { ArrowRight, CircleAlert, LoaderCircle, LockKeyhole, Mail } from 'lucide
 import { useAppState } from '../../hooks/useApp'
 import { signIn } from '../../services/auth'
 import { Field, PasswordInput } from '../../components/ui/forms'
-import { DemoDisclaimer } from '../../components/ui/common'
+import { BrandMark, DemoDisclaimer } from '../../components/ui/common'
 import { useToast } from '../../components/ui/Feedback'
 
 const QUICK = [
@@ -53,9 +53,7 @@ export function LoginScreen() {
       </button>
 
       <div className="brand" style={{ marginBottom: '1.6rem' }}>
-        <div className="brand__mark" aria-hidden="true">
-          FP
-        </div>
+        <BrandMark />
         <div>
           <div className="brand__name">{settings.company.appName}</div>
           <div className="brand__tag">{settings.company.tagline}</div>

@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom'
 import { ArrowRight, ChevronRight, HandHeart, Lock, ShieldCheck, Sparkles, Wallet } from 'lucide-react'
 import { useAppState } from '../../hooks/useApp'
 import { Sheet } from '../../components/ui/Sheet'
-import { DemoDisclaimer } from '../../components/ui/common'
+import { BrandMark, DemoDisclaimer } from '../../components/ui/common'
 
 const DEMO_USERS = [
   { name: 'María Fernanda López', email: 'maria@demo.com', password: 'Demo123*', detail: '3 seguros · fondo solidario' },
@@ -23,9 +23,7 @@ export function WelcomeScreen() {
   return (
     <div className="auth">
       <div className="brand" style={{ paddingTop: '0.5rem' }}>
-        <div className="brand__mark" aria-hidden="true">
-          FP
-        </div>
+        <BrandMark />
         <div>
           <div className="brand__name">{settings.company.appName}</div>
           <div className="brand__tag">{settings.company.tagline}</div>

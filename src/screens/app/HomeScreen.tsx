@@ -5,9 +5,11 @@ import {
   CalendarClock,
   HandHeart,
   Landmark,
+  Megaphone,
   PlusCircle,
   ReceiptText,
   ShieldCheck,
+  Sparkles,
   Wallet,
 } from 'lucide-react'
 import { useAppState } from '../../hooks/useApp'
@@ -57,6 +59,32 @@ export function HomeScreen() {
           </button>
         </div>
       </div>
+
+      {(state.settings.notifications.announcementActive || state.settings.texts.homeBanner) && (
+        <div
+          className={`banner ${state.settings.notifications.announcementActive ? 'banner--gold' : ''}`}
+          style={{ marginTop: '0.8rem', alignItems: 'flex-start' }}
+          role="status"
+        >
+          {state.settings.notifications.announcementActive ? (
+            <Megaphone size={18} style={{ flexShrink: 0, marginTop: '0.05rem' }} />
+          ) : (
+            <Sparkles size={18} style={{ flexShrink: 0, marginTop: '0.05rem' }} />
+          )}
+          <div style={{ minWidth: 0 }}>
+            {state.settings.notifications.announcementActive && (
+              <strong style={{ display: 'block', marginBottom: '0.1rem' }}>
+                {state.settings.notifications.announcementTitle}
+              </strong>
+            )}
+            <span>
+              {state.settings.notifications.announcementActive
+                ? state.settings.notifications.announcementBody
+                : state.settings.texts.homeBanner}
+            </span>
+          </div>
+        </div>
+      )}
 
       {next ? (
         <section className="hero" style={{ marginTop: '1.1rem' }} aria-label="Próximo pago">

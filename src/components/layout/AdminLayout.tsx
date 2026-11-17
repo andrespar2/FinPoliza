@@ -14,6 +14,7 @@ import {
 import { useAppState } from '../../hooks/useApp'
 import { hasPermission } from '../../services/store'
 import { initials } from '../../lib/format'
+import { BrandMark } from '../ui/common'
 
 const ITEMS = [
   { to: '/admin', label: 'Panel', icon: LayoutDashboard, permission: 'dashboard.view', end: true },
@@ -37,9 +38,7 @@ export function AdminLayout() {
     <div className="admin-shell">
       <header className="admin-topbar">
         <div className="admin-topbar__inner">
-          <div className="brand__mark" aria-hidden="true">
-            FP
-          </div>
+          <BrandMark />
           <div style={{ flex: 1, minWidth: 0 }}>
             <div className="admin-topbar__title">Panel administrativo</div>
             <div className="admin-topbar__sub">

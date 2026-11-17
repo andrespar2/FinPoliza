@@ -1,4 +1,4 @@
-import type { ReactNode } from 'react'
+import { useState, type ReactNode } from 'react'
 import {
   ArrowLeft,
   BadgeCheck,
@@ -244,9 +244,7 @@ export function ProductIcon({
 export function LoadingScreen({ message = 'Cargando tu información…' }: { message?: string }) {
   return (
     <div className="splash">
-      <div className="brand__mark brand__mark--lg" aria-hidden="true">
-        FP
-      </div>
+      <BrandMark size="lg" />
       <div className="splash__spinner" aria-hidden="true" />
       <div>
         <p className="strong">{message}</p>
@@ -254,6 +252,21 @@ export function LoadingScreen({ message = 'Cargando tu información…' }: { mes
           FinPoliza
         </p>
       </div>
+    </div>
+  )
+}
+
+export function BrandMark({ size = 'md' }: { size?: 'md' | 'lg' }) {
+  const { settings } = useAppState()
+  const [failed, setFailed] = useState(false)
+  const logo = settings?.company?.logoUrl?.trim()
+  return (
+    <div className={`brand__mark ${size === 'lg' ? 'brand__mark--lg' : ''}`} aria-hidden="true">
+      {logo && !failed ? (
+        <img src={logo} alt="" className="brand__mark__img" onError={() => setFailed(true)} />
+      ) : (
+        'FP'
+      )}
     </div>
   )
 }

@@ -10,7 +10,7 @@ import {
   ShieldCheck,
 } from 'lucide-react'
 import { useAppState } from '../../hooks/useApp'
-import { ScreenHeader } from '../../components/ui/common'
+import { BrandMark, ScreenHeader } from '../../components/ui/common'
 
 export function CompanyInfoScreen() {
   const { settings } = useAppState()
@@ -23,9 +23,7 @@ export function CompanyInfoScreen() {
 
       <section className="hero hero--neutral">
         <div className="row" style={{ gap: '0.9rem', alignItems: 'center' }}>
-          <div className="brand__mark brand__mark--lg" aria-hidden="true">
-            FP
-          </div>
+          <BrandMark size="lg" />
           <div>
             <div className="hero__eyebrow">Compañía de seguros</div>
             <h2 style={{ fontSize: '1.5rem', fontWeight: 800, letterSpacing: '-0.035em', marginTop: '0.15rem' }}>

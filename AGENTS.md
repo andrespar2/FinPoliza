@@ -564,12 +564,23 @@ Probado con ADB:
     marcarse como leído; solo administradores pueden eliminarlos).
   - Grid del dashboard en 3 columnas para evitar tarjetas huérfanas en tablet.
   - Favicon e íconos web, capturas en `docs/screenshots` y README con vista previa.
+  - El logo configurable por el administrador ahora se usa en la marca de la app
+    (`BrandMark`), con fallback a “FP” si la URL falla.
+  - El aviso destacado (`announcementActive`) y el banner de inicio (`homeBanner`) se muestran
+    en Inicio; las plantillas de notificación se usan en pagos y operaciones del fondo.
+  - La periodicidad predeterminada preselecciona la modalidad al comprar un seguro.
+  - Se retiraron de la configuración los campos sin efecto (`graceDays`,
+    `showCatalogToGuests`) para que toda opción visible tenga funcionalidad.
+  - Corrección de arranque: `settings` usa la configuración por defecto durante la carga,
+    evitando el error de `BrandMark` antes de inicializar IndexedDB.
 - Documentación: `AGENTS.md`, `DEMO_CREDENTIALS.md`, `README.md`, `.gitignore`.
 - Firma release configurada con keystore local.
 - APK release 1.0.0 compilada y verificada con `apksigner`; instalada en el dispositivo
   Lenovo TB-7104F y validada (login, datos y persistencia tras cierre forzado).
 - Certificado de firma SHA-256:
   `945aefa4a018f9ad52afc30a92c614b611345bd91c6f580f4eeae7675dc0281c`.
+- APK final SHA-256:
+  `07913FF658000F80C293A0C0EA7D5FD64D5C269712BA90A0496270BC2D03069A`.
 
 ### Próximos pasos sugeridos
 

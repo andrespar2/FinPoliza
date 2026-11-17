@@ -52,7 +52,7 @@ export async function depositToFund(amount: number): Promise<FundOperationResult
   const notification = makeNotification(session.id, {
     type: 'fund_deposit',
     title: 'Aportación registrada',
-    body: `Recibimos tu aportación de ${formatMoney(amount)} al Fondo Solidario.`,
+    body: `${state.settings.notifications.templates.deposit} Aportaste ${formatMoney(amount)}.`,
     link: '/fondo',
   })
 
@@ -104,7 +104,7 @@ export async function withdrawFromFund(amount: number): Promise<FundOperationRes
   const notification = makeNotification(session.id, {
     type: 'fund_withdrawal',
     title: 'Retiro procesado',
-    body: `Procesamos tu retiro de ${formatMoney(amount)}. Tu nuevo saldo está actualizado.`,
+    body: `${state.settings.notifications.templates.withdrawal} Retiraste ${formatMoney(amount)}.`,
     link: '/fondo',
   })
 

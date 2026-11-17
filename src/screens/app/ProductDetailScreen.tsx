@@ -18,7 +18,11 @@ export function ProductDetailScreen() {
   const product = state.products.find((p) => p.id === productId)
   const [open, setOpen] = useState(false)
   const [step, setStep] = useState<1 | 2 | 3>(1)
-  const [modalityId, setModalityId] = useState(product?.modalities[0]?.id ?? '')
+  const [modalityId, setModalityId] = useState(
+    product?.modalities.find((m) => m.periodicity === state.settings.insurance.defaultPeriodicity)?.id ??
+      product?.modalities[0]?.id ??
+      '',
+  )
   const [accepted, setAccepted] = useState(false)
   const [submitting, setSubmitting] = useState(false)
   const [error, setError] = useState<string | null>(null)

@@ -5,7 +5,7 @@ import { useAppState } from '../../hooks/useApp'
 import { resetPasswordDemo } from '../../services/auth'
 import { checkPasswordStrength } from '../../lib/crypto'
 import { Field, PasswordInput, TextInput } from '../../components/ui/forms'
-import { DemoDisclaimer } from '../../components/ui/common'
+import { BrandMark, DemoDisclaimer } from '../../components/ui/common'
 import { useToast } from '../../components/ui/Feedback'
 
 export function ForgotPasswordScreen() {
@@ -66,9 +66,7 @@ export function ForgotPasswordScreen() {
       </button>
 
       <div className="brand" style={{ marginBottom: '1.4rem' }}>
-        <div className="brand__mark" aria-hidden="true">
-          FP
-        </div>
+        <BrandMark />
         <div>
           <div className="brand__name">{settings.company.appName}</div>
           <div className="brand__tag">Recuperar acceso</div>

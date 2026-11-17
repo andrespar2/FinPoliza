@@ -405,23 +405,18 @@ export function AdminSettings() {
           <section className="card stack">
             <h2 className="card-title">Reglas de seguros y pagos</h2>
             <div className="list">
-              {[
-                { key: 'allowPurchase' as const, label: 'Permitir compra de seguros', sub: 'Los usuarios pueden adquirir pólizas desde el catálogo.' },
-                { key: 'showCatalogToGuests' as const, label: 'Mostrar catálogo sin sesión', sub: 'Solo informativo en la DEMO actual.' },
-              ].map((item) => (
-                <label key={item.key} className="list-row" style={{ cursor: 'pointer' }}>
-                  <span className="list-row__body">
-                    <span className="list-row__title">{item.label}</span>
-                    <span className="list-row__sub">{item.sub}</span>
-                  </span>
-                  <input
-                    type="checkbox"
-                    checked={Boolean(insurance[item.key])}
-                    onChange={(e) => setInsurance((i) => ({ ...i, [item.key]: e.target.checked }))}
-                    style={{ width: '1.4rem', height: '1.4rem', accentColor: '#3b82f6' }}
-                  />
-                </label>
-              ))}
+              <label className="list-row" style={{ cursor: 'pointer' }}>
+                <span className="list-row__body">
+                  <span className="list-row__title">Permitir compra de seguros</span>
+                  <span className="list-row__sub">Los usuarios pueden adquirir pólizas desde el catálogo.</span>
+                </span>
+                <input
+                  type="checkbox"
+                  checked={insurance.allowPurchase}
+                  onChange={(e) => setInsurance((i) => ({ ...i, allowPurchase: e.target.checked }))}
+                  style={{ width: '1.5rem', height: '1.5rem', accentColor: '#3b82f6' }}
+                />
+              </label>
             </div>
             <SelectInput
               label="Periodicidad predeterminada"
@@ -433,27 +428,17 @@ export function AdminSettings() {
                 { value: 'weekly', label: 'Semanal' },
                 { value: 'annual', label: 'Anual' },
               ]}
+              hint="Se preselecciona al comprar un seguro que tenga esa modalidad."
             />
-            <div className="grid grid--2">
-              <Field label="Días de gracia" hint="Días después del vencimiento antes de reportar mora.">
-                <input
-                  className="input"
-                  type="number"
-                  min={0}
-                  value={insurance.graceDays}
-                  onChange={(e) => setInsurance((i) => ({ ...i, graceDays: Number(e.target.value) }))}
-                />
-              </Field>
-              <Field label="Días de recordatorio" hint="Antelación de los avisos de pago.">
-                <input
-                  className="input"
-                  type="number"
-                  min={1}
-                  value={insurance.reminderDays}
-                  onChange={(e) => setInsurance((i) => ({ ...i, reminderDays: Number(e.target.value) }))}
-                />
-              </Field>
-            </div>
+            <Field label="Días de recordatorio" hint="Antelación de los avisos de cuota próxima a vencer.">
+              <input
+                className="input"
+                type="number"
+                min={1}
+                value={insurance.reminderDays}
+                onChange={(e) => setInsurance((i) => ({ ...i, reminderDays: Number(e.target.value) }))}
+              />
+            </Field>
             <div className="banner">
               <CircleAlert size={17} style={{ flexShrink: 0 }} />
               <span>Los cambios aplican a nuevas operaciones. Las pólizas existentes conservan sus condiciones.</span>

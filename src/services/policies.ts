@@ -1,6 +1,6 @@
 import type { Installment, Payment, PaymentMethod, Policy } from '../types'
 import { addPeriod, nowISO, todayISO } from '../lib/dates'
-import { formatTime } from '../lib/format'
+import { formatMoney, formatTime } from '../lib/format'
 import { uid } from '../lib/id'
 import { commit, hasPermission, requireSession, store } from './store'
 import { makeAudit } from './audit'
@@ -147,7 +147,7 @@ export async function payInstallment(input: PayInstallmentInput): Promise<Paymen
   const notification = makeNotification(ownerId, {
     type: 'payment_received',
     title: 'Pago registrado',
-    body: `Registramos tu pago de la cuota ${installment.number} por un valor de $${installment.amount.toLocaleString('es-CO')}.`,
+    body: `${state.settings.notifications.templates.paymentReceived} Cuota ${installment.number} de ${policy.snapshot.name} por ${formatMoney(installment.amount)}.`,
     link: policy ? `/seguros/${policy.id}` : '/movimientos',
   })
 

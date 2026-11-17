@@ -76,7 +76,7 @@ export const DEFAULT_SETTINGS: AppSettings = {
       'FinPoliza protege tus datos personales. La información suministrada se utiliza únicamente para la administración de tu cuenta y tus pólizas. En esta demostración todos los datos son ficticios y se almacenan localmente en tu dispositivo.',
     demoDisclaimer:
       'Estás en una DEMO de FinPoliza. Ninguna operación mueve dinero real.',
-    homeBanner: 'Este mes proteges a tu familia con 3 seguros activos',
+    homeBanner: 'Tu tranquilidad y la de tu familia, en un solo lugar.',
     loginMessage: 'Ingresa para consultar tus seguros y tu fondo solidario.',
   },
   fund: {
@@ -100,9 +100,7 @@ export const DEFAULT_SETTINGS: AppSettings = {
   insurance: {
     allowPurchase: true,
     defaultPeriodicity: 'monthly',
-    graceDays: 5,
     reminderDays: 7,
-    showCatalogToGuests: false,
   },
   notifications: {
     enabled: true,

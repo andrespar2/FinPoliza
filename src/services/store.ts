@@ -12,6 +12,7 @@ import type {
   User,
 } from '../types'
 import { buildSeedData, seedMeta } from '../data/seed'
+import { DEFAULT_SETTINGS } from '../data/defaults'
 import { STORES, getMeta, getAll, withTransaction } from '../lib/db'
 import { nowISO } from '../lib/dates'
 import { configureFormat } from '../lib/format'
@@ -50,8 +51,7 @@ const emptyState: AppState = {
   fundMovements: [],
   notifications: [],
   audit: [],
-  // El estado real llega desde IndexedDB; este valor solo evita nulos en el primer render.
-  settings: null as unknown as AppSettings,
+  settings: DEFAULT_SETTINGS,
 }
 
 type Listener = () => void
