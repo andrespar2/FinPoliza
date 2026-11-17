@@ -1,0 +1,40 @@
+{
+  "name": "finpoliza",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "description": "FinPoliza - DEMO de aplicación móvil de gestión de seguros y contabilidad",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc --noEmit && vite build",
+    "preview": "vite preview",
+    "typecheck": "tsc --noEmit",
+    "cap:sync": "npm run build && cap sync android",
+    "android:build": "npm run build && cap sync android && cd android && gradlew.bat assembleDebug",
+    "android:install": "adb install -r android/app/build/outputs/apk/debug/app-debug.apk",
+    "android:release": "npm run build && cap sync android && cd android && gradlew.bat assembleRelease"
+  },
+  "dependencies": {
+    "@capacitor/android": "^8.6.2",
+    "@capacitor/app": "^8.1.2",
+    "@capacitor/core": "^8.6.2",
+    "@capacitor/splash-screen": "^8.0.2",
+    "@capacitor/status-bar": "^8.0.4",
+    "lucide-react": "^0.545.0",
+    "react": "^19.3.1",
+    "react-dom": "^19.3.1",
+    "react-router-dom": "^7.18.5"
+  },
+  "devDependencies": {
+    "@capacitor/cli": "^8.6.2",
+    "@types/react": "^19.2.0",
+    "@types/react-dom": "^19.2.0",
+    "@vitejs/plugin-react": "^6.3.0",
+    "sharp": "^0.34.4",
+    "typescript": "~5.9.3",
+    "vite": "^8.3.8"
+  },
+  "allowScripts": {
+    "sharp@0.34.5": true
+  }
+}

@@ -1,0 +1,29 @@
+# Dependencias y artefactos
+node_modules/
+dist/
+*.log
+npm-debug.log*
+
+# Entorno local
+.env
+.env.*
+android/local.properties
+
+# Android
+android/.gradle/
+android/build/
+android/app/build/
+android/capacitor-cordova-android-plugins/
+android/keystore/
+*.jks
+*.keystore
+
+# Pruebas y capturas
+.playwright-mcp/
+coverage/
+playwright-report/
+test-results/
+
+# Sistema
+.DS_Store
+Thumbs.db
